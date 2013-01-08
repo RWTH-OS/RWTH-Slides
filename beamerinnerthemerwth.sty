@@ -42,20 +42,22 @@
 
 \AtBeginDocument
 {
-\frame[plain]{\titlepage}
+\frame[plain,t]{\titlepage}
 }
 
 \AtEndDocument
 {
-\begin{frame}[plain]
-  \hfill\insertlogo\par%
+\begin{frame}[plain,t]
+  \hfill\insertlogo
 
-  \scriptsize
   \vspace{4cm}
-  Vielen Dank f\"ur Ihre Aufmerksamkeit!
+  \scriptsize
+  \protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
+  \protect\iflanguage{english}{Thank you for your kind attention!}{}
+
 
   \vspace{4ex}
-  \textbf{\insertauthor}
+  \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{rwthblue}\printemail}}\fi
 
   \vspace{2ex}
   RWTH Aachen University\\
@@ -63,7 +65,7 @@
   52056 Aachen
 
   \vspace{2ex}
-  {\color{rwthblue}\url{www.rwth-aachen.de}}
+  {\color{rwthblue}\url{\printwebaddress}}
 \end{frame}
 }
 
@@ -73,6 +75,5 @@
 %\setbeamertemplate{itemize subsubitem}[default]
 %\setbeamertemplate{sections/subsections in toc}[ball unnumbered]
 
-\mode
-<all>
+\mode<all>
 
