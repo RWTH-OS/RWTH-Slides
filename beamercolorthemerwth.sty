@@ -1,0 +1,91 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: beamercolorthemelfbs.sty,v 1.4 2007/01/28 20:48:24 tantau Exp $
+
+
+\mode<presentation>
+
+%%
+%% color settings for the rwth theme
+%%
+
+
+%%
+%% define colors rwthblue and rwthlightblue
+%%
+
+%\xdefinecolor{rwthblue}{rgb}{0,0.48,0.73}
+
+% rwth blue: RGB 0-84-159              0 - 0.3294 - 0.6235
+\xdefinecolor{rwthblue}{rgb}{0,0.3294,0.6235}
+% rwth light blue: RGB 142-186-229     0.5569 - 0.7294 - 0.8980
+\xdefinecolor{rwthlightblue}{rgb}{0.5569,0.7294,0.8980}
+
+
+
+%%
+%% settings for the title page
+%%
+
+%\setbeamercolor{title in titlepage}{fg=rwthblue}
+\setbeamercolor{title}{fg=rwthblue}
+
+%\setbeamercolor{subtitle in title}{fg=black}
+%\setbeamercolor{title in head/foot}{fg=rwthblue}
+\setbeamercolor{subtitle}{fg=black}
+\setbeamercolor{author in head/foot}{fg=black}
+
+
+
+%%
+%% settings for the outer theme
+%%
+
+\setbeamercolor{framenumber in head/foot}{fg=white,bg=rwthblue}
+
+\setbeamercolor{frametitle}{fg=rwthblue}
+
+\setbeamercolor{section}{fg=rwthblue}
+
+%%
+%% settings for the table of contents
+%%
+
+\setbeamercolor{section in toc}{fg=rwthblue}
+\setbeamercolor{subsection in toc}{fg=rwthblue}
+
+
+%%
+%% settings for the inner theme (e.g. itemize)
+%%
+
+\setbeamercolor{itemize item}{fg=rwthblue}
+\setbeamercolor{itemize subitem}{fg=rwthblue}
+\setbeamercolor{itemize subsubitem}{fg=gray}
+%\setbeamercolor{itemize subsubbody}{fg=red}
+
+
+
+%%
+%% old settings (deactivated) for reference
+%%
+
+%\setbeamercolor{sidebar text}{fg=white}
+%\setbeamercolor{sidebar right}{fg=black,bg=red}
+%\setbeamercolor{title in foot}{fg=white}
+%\setbeamercolor{phramenumber in foot}{fg=black}
+%\setbeamercolor{insitute in foot}{fg=black}
+%\setbeamercolor{head text}{fg=black}
+%\setbeamercolor{normal text}{fg=black,bg=white}
+
+
+\mode
+<all>
+

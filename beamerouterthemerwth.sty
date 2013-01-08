@@ -1,0 +1,297 @@
+\ProvidesPackageRCS $Header: beamerouterthemelfbs.sty,v 1.9 2007/07/16 20:48:30 tantau Exp $
+
+
+
+\RequirePackage{calc}       % needed for calculations of lengths
+
+
+% Ein paar Übersetzungen für deutsche/englische Folien
+%  (\languagename ist ein Makro, das vom Paket babel gesetzt wird)
+%\AtBeginDocument{
+%	\iflanguage{english}%
+%	{% true
+%		\def\lfbs@institute{Chair for Operating Systems}%
+%		\def\lfbs@logotext{lfbslogoschriftzugenglish}
+%	}%	
+%	{% false
+%		\def\lfbs@institute{Lehrstuhl f\"{u}r Betriebssysteme}%
+%		\def\lfbs@logotext{lfbslogoschriftzug}
+%	}%
+%	% Kommando bereitstellen um die Titelseite zu zentrieren
+%	\newlength{\distfromleft}
+%	\setlength{\distfromleft}{\Gm@lmargin/2}
+%	\newcommand{\centertitleframe}{\hskip-\distfromleft}
+%}
+		
+\mode<presentation>
+
+%\setbeamercolor{author in head/foot}{parent=palette tertiary}
+%\setbeamercolor{title in head/foot}{parent=palette secondary}
+%\setbeamercolor{date in head/foot}{parent=palette primary}
+%\setbeamercolor{section in head/foot}{parent=palette tertiary}
+%\setbeamercolor{subsection in head/foot}{parent=palette primary}
+
+
+
+
+\defbeamertemplate*{title page}{rwth theme}
+{
+	\hfill
+	{%\usebeamercolor [fg]{titlegraphic}%
+	%\includegraphics[height=.08\paperheight]{logos/rwth} \par
+    \insertlogo\par
+	}	
+    \vspace{25mm}
+	\begin {beamercolorbox}[sep=0pt]{title}
+        \usebeamerfont{title in title page}\inserttitle
+	\end {beamercolorbox}
+    \vfill
+	\begin {beamercolorbox}[sep=0pt]{subtitle}
+		\usebeamerfont{subtitle in title page}\insertsubtitle
+	\end {beamercolorbox}
+    \vfill
+	\begin {beamercolorbox}[sep=0pt,]{author}
+        \usebeamerfont{author in title page}\insertauthor
+	\end {beamercolorbox}
+    \vspace{2ex}
+	\begin {beamercolorbox}[sep=0pt,]{institute}
+        \usebeamerfont{institute in title page}\insertinstitute
+	\end {beamercolorbox}
+	\begin {beamercolorbox}[sep=0pt,]{date}
+        \usebeamerfont{date in title page}\insertdate
+	\end {beamercolorbox}
+    \vspace{2ex}
+}
+
+%\defbeamertemplate*{sidebar right}{rwth theme}
+%{
+%  \vskip4mm%
+%  \llap{\insertlogo\hskip0.1cm}%
+%  \vfill%
+%  %\llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+%  %\vskip2pt%
+%}
+\defbeamertemplate*{sidebar right}{rwth theme}
+{
+}
+\defbeamertemplate*{sidebar left}{rwth theme}
+{
+}
+
+
+%\defbeamertemplate*{sidebar left}{rwth theme}
+%{
+%  \vfill%
+%  %\llap{\insertlogo\hskip0.1cm}%
+%  \begin{beamercolorbox}[wd=8mm,ht=7mm,sep=4pt,right]{framenumber in head/foot}
+%    \usebeamerfont{framenumber}\insertframenumber{}
+%  \end{beamercolorbox}
+%  \vskip2pt%
+%}
+
+\defbeamertemplate*{frametitle}{rwth theme}[1][left]
+{}
+
+\defbeamertemplate*{headline}{rwth theme}[1][left]
+{
+  %\ifbeamercolorempty[bg]{frametitle}{}{\nointerlineskip}%
+  %\@tempdima=\textwidth%
+  %\advance\@tempdima by\beamer@leftmargin%
+  %\advance\@tempdima by\beamer@rightmargin%
+  %%\begin{beamercolorbox}[sep=0.3cm,#1,wd=\the\@tempdima]{frametitle}
+  %\hbox{%
+  %\begin{beamercolorbox}[sep=0.3cm,#1,wd=.63\paperwidth]{frametitle}
+  %  \usebeamerfont{frametitle}%
+  %  \vbox{}\vskip-1ex%
+  %  \if@tempswa\else\csname beamer@fte#1\endcsname\fi%
+  %  \strut\insertframetitle\strut\par%
+  %  {%
+  %    \ifx\insertframesubtitle\@empty%
+  %    \else%
+  %    {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+  %    \fi
+  %  }%
+  %  \vskip-1ex%
+  %  \if@tempswa\else\vskip-.3cm\fi% set inside beamercolorbox... evil here...
+  %\end{beamercolorbox}%
+  \vskip2mm%
+  \hbox{%
+  \begin{beamercolorbox}[sep=0cm,wd=\beamer@leftmargin]{frametitle}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[sep=0cm,wd=.66\paperwidth]{frametitle}
+    \usebeamerfont{frametitle}\insertframetitle
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[sep=0cm,wd=2mm]{frametitle}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[sep=0cm,wd=.3\paperwidth,left]{logo}
+    \insertlogo
+  \end{beamercolorbox}%
+  }
+}
+
+%\defbeamertemplate*{footline}{rwth theme}
+%{
+%  \leavevmode%
+%  \hbox{%
+%  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+%    \usebeamerfont{title in head/foot}\insertshorttitle%
+%  \end{beamercolorbox}%
+%  }\par\hbox{
+%  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex]{author in head/foot}%
+%    \usebeamerfont{author in head/foot}\insertshortauthor%
+%    \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
+%    \expandafter\beamer@ifempty\expandafter{\beamer@shortdate}{}{~|~\insertshortdate}%
+%  \end{beamercolorbox}%
+%  \begin{beamercolorbox}[wd=.35\paperwidth,ht=2.25ex,dp=1ex,right]{navigation symbols in head/foot}%
+%    \usebeamertemplate***{navigation symbols}\hskip5mm%
+%  \end{beamercolorbox}%
+%  }%
+%  \vskip0pt%
+%}
+\defbeamertemplate*{footline}{rwth theme}
+{
+  \leavevmode%
+  \begin{beamercolorbox}[wd=8mm,ht=7mm,sep=4pt,right]{framenumber in head/foot}
+    \usebeamerfont{framenumber}\insertframenumber{}
+  \end{beamercolorbox}
+  \begin{beamercolorbox}[sep=2pt,wd=.9\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+    \hbox{%
+    \usebeamerfont{title in head/foot}\insertshorttitle%
+    }\par%
+    \hbox{%
+    \hskip2pt\usebeamercolor[fg]{author in head/foot}\usebeamerfont{author in head/foot}\insertshortauthor%
+    \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
+    \expandafter\beamer@ifempty\expandafter{\beamer@shortdate}{}{~|~\insertshortdate}%
+    \hskip5mm%
+    \usebeamertemplate***{navigation symbols}\hskip5mm%
+    }%
+  \end{beamercolorbox}%
+  
+  \vskip0pt%
+}
+
+%\defbeamertemplate*{headline}{rwth theme}
+%{
+    %\vfill\includegraphics[height=.55cm]{logos/rwth}
+	%{%\usebeamercolor [fg]{titlegraphic}%
+	%\vfill\includegraphics[height=.08\paperheight]{logos/rwth} \par
+	%}	
+%}
+
+%\defbeamertemplate*{headline}{lfbs theme}
+%{
+%    \pgfdeclarehorizontalshading{lfbsheadlineshading}{.05\paperwidth}{%
+%      color(0pt)=(rwthblue);%
+%      color(0.8\paperwidth)=(white)
+%    }
+%
+%  \leavevmode%
+%  \begin{beamercolorbox}[wd=\paperwidth,ht=.025\paperheight]{section in head/foot}%
+%	\end{beamercolorbox}%
+%
+%  %\psframebox[fillstyle=slopes,slopecolors=0 1 1 1 25 1 1 1 100 0 0.48 0.73 3]{
+%  \hbox{%
+%		\hspace*{\paperwidth}
+%  	\begin{rotate}{180}
+%  		\raisebox{-4ex}{\pgfuseshading{lfbsheadlineshading}}
+%  	\end{rotate}
+%		\hspace*{-0.98\paperwidth}
+% 
+%	  \begin{beamercolorbox}[wd=.15\paperwidth,ht=.02\paperheight,dp=1ex,left]{section in head/foot}%
+%	    %\raisebox{-2ex}{\includegraphics[height=.5cm]{img/lfbslogo}}
+%	  \end{beamercolorbox}%
+%	 
+%	  \begin{beamercolorbox}[wd=.818\paperwidth,ht=.025\paperheight,dp=1ex,center]{head text}%
+%	  \ifthenelse{\equal{\insertsubsectionhead}{}}%
+%	    {\usebeamerfont{section in head/foot}\raisebox{-.55ex}{\insertsectionhead}}%
+%	    {\usebeamerfont{section in head/foot}\raisebox{-.55ex}{\insertsectionhead\ -- \insertsubsectionhead}}%
+%	    %\usebeamerfont{section in head/foot}\raisebox{-.55ex}{\insertsectionhead\ -- \insertsubsectionhead}%
+%	    %\usebeamerfont{subsection in head/foot}\raisebox{-.55ex}{\insertsubsectionhead}%
+%	  \end{beamercolorbox}
+%	}%
+%  \vskip0pt%
+%}
+
+%\defbeamertemplate*{footline}{lfbs theme}
+%{
+%    \pgfdeclarehorizontalshading{lfbsfootlineshading}{.034\paperwidth}{%
+%      color(0pt)=(rwthblue);%
+%      color(0.031\paperwidth)=(rwthblue);%
+%      color(0.831\paperwidth)=(white)
+%    }
+%
+%  \leavevmode%
+%
+%  \hbox{%
+%  	\raisebox{-2.5ex}{\pgfuseshading{lfbsfootlineshading}}
+%	  \hspace*{-0.8\paperwidth}
+%  %\psframebox[fillstyle=slopes,slopecolors=0 0 0.48 0.73 5 0 0.48 0.73 75 1 1 1 100 1 1 1 4]{
+% 	  	\begin{beamercolorbox}[wd=.46\paperwidth,ht=.01\paperheight,dp=1ex,left]{title in foot}%
+%	    	\usebeamerfont{author in head/foot}\raisebox{-.7ex}{\insertshorttitle}%
+%	  	\end{beamercolorbox}%
+%	  	\begin{beamercolorbox}[wd=.02\paperwidth,ht=.01\paperheight,dp=1ex,center]{phramenumber in foot}%
+%		    \usebeamerfont{phramenumber in foot}\raisebox{-.7ex}{\insertframenumber{}}%
+%		  \end{beamercolorbox}%
+%	  	\begin{beamercolorbox}[wd=.3\paperwidth,ht=.01\paperheight,dp=1ex,center]{institute in foot}%
+%		    \usebeamerfont{date in head/foot}\raisebox{-.7ex}{\lfbs@institute}%
+%	  	\end{beamercolorbox}%
+%		    %\raisebox{-1.5ex}{\includegraphics[height=.55cm]{img/rwthlogo}}%height=.5cm
+%%  }
+%  }
+%%  \vskip0pt%
+%}
+
+%\defbeamertemplate*{sidebar left}{lfbs theme}
+%{
+%%	\psframebox[fillstyle=slopes,slopecolors=0 0 0.48 0.73 2 0 0.48 0.73 75 1 1 1 100 1 1 1 4,slopeangle=90]{
+%	\begin{beamercolorbox}[wd=.034\paperwidth,ht=.9\paperheight,sep=2ex,dp=1ex,right]{sidebar text}%
+%		\usebeamerfont{date in sidebar}
+%		\begin{rotate}{90}
+%			%\hspace*{-6ex}
+%			\insertshortdate
+%%			\hspace*{.2\paperheight}
+%%			\insertsectionhead 
+%		\end{rotate}
+%	\end{beamercolorbox}
+%%	}
+%}
+
+%\defbeamertemplate*{navigation symbols}{lfbs theme}%
+%{
+%%	\insertslidenavigationsymbol
+%%	\insertframenavigationsymbol
+%%	\insertsectionnavigationsymbol
+%%	\insertsubsectionnavigationsymbol
+%}
+
+%\defbeamertemplate*{sidebar right}{lfbs theme}
+%{
+%%	\begin{beamercolorbox}[wd=0.04\paperwidth,ht=.84\paperheight,dp=1ex,left]{sidebar right}
+%%		\begin{rotate}{90}
+%%			\insertnavigationsymbols
+%%		\end{rotate}
+%%	\end{beamercolorbox}
+%}
+
+%\setbeamertemplate{frametitle}
+%{
+%	  \begin{beamercolorbox}[wd=.966\paperwidth,ht=.035\paperheight,dp=1ex,center]{head text}%
+%	    \usebeamerfont{frametitle}\raisebox{-1.5ex}{\underline \insertframetitle}%
+%	  \end{beamercolorbox}
+%}
+
+%\setbeamertemplate{framesubtitle}{}
+
+%\setbeamersize{sidebar width left=.031\paperwidth}
+%%\setbeamersize{sidebar width right=.031\paperwidth}
+
+%\setbeamertemplate{sidebar canvas left}[vertical shading]
+%[left=rwthblue, middle=rwthblue, right=white, midpoint=0.2]
+%
+%%\setbeamertemplate{sidebar canvas right}[vertical shading]
+%%[left=white, middle=white, right=white, midpoint=0.2]
+
+%\setbeamersize{text margin left=2em,text margin right=1em}
+
+\mode
+<all>

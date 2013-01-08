@@ -1,0 +1,78 @@
+% Copyright 2007 by Till Tantau
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+\ProvidesPackageRCS $Header: beamerinnerthemelfbs.sty,v 1.4 2007/07/23 20:48:30 tantau Exp $
+
+
+\mode<presentation>
+
+% 
+% Listen-Layout
+%
+% 1. Ebene: Quadrat
+\setbeamertemplate{itemize item}[square]
+% 2. Ebene: Pfeil       TODO : der Pfeil in der Powerpoint-Vorlage sieht anders aus.
+\defbeamertemplate{itemize subitem}{arrow}{$\rightarrow$}
+%\setbeamertemplate{itemize subitem}[arrow]
+%           typografisch schöner: Dreieck (TODO : verstößt zwar gegen Vorlage, sieht aber besser aus!)
+\setbeamertemplate{itemize subitem}[triangle]
+
+% 3. Ebene: rechte Guillemets (zwei größer-als-Zeichen: >> )
+\defbeamertemplate{itemize subsubitem}{double arrow}{\frqq}
+\setbeamertemplate{itemize subsubitem}[double arrow]
+
+
+
+\AtBeginSection[] % Do nothing for \section*
+{
+\begin{frame}<beamer>
+  \frametitle{~}
+  \vspace{3cm}
+  \begin {beamercolorbox}[sep=0pt]{section}
+    \usebeamerfont{section}\insertsection
+  \end {beamercolorbox}
+\end{frame}
+}
+
+\AtBeginDocument
+{
+\frame[plain]{\titlepage}
+}
+
+\AtEndDocument
+{
+\begin{frame}[plain]
+  \hfill\insertlogo\par%
+
+  \scriptsize
+  \vspace{4cm}
+  Vielen Dank f\"ur Ihre Aufmerksamkeit!
+
+  \vspace{4ex}
+  \textbf{\insertauthor}
+
+  \vspace{2ex}
+  RWTH Aachen University\\
+  Templergraben 55\\
+  52056 Aachen
+
+  \vspace{2ex}
+  {\color{rwthblue}\url{www.rwth-aachen.de}}
+\end{frame}
+}
+
+
+%\setbeamertemplate{itemize item}[circle]
+%\setbeamertemplate{itemize subitem}[default]
+%\setbeamertemplate{itemize subsubitem}[default]
+%\setbeamertemplate{sections/subsections in toc}[ball unnumbered]
+
+\mode
+<all>
+

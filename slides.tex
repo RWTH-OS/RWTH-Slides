@@ -1,0 +1,303 @@
+\documentclass[]{beamer}
+\usetheme{rwth}
+
+%%
+%% RWTH Beamer Theme (layout based on RWTH PowerPoint template)
+%% by Georg Wassen, Lehrstuhl für Betriebssysteme
+%%    wassen@lfbs.rwth-aachen.de
+%%
+%% Version 0.1    20.12.2012    initial presentation using this theme
+%% Version 0.2    08.01.2013    extracted layout and some example slides
+%%
+%% TODO
+%%  - logo on title page and last page (contact info) is not in the same place as in the other pages
+%%  - include e-mail address auf author for last page (contact info)
+%%  - set www address for last page (contact info), allow inserting institute's web address
+%%  - set "Vielen Dank" (on last page) according to language setting (babel)
+%%  - copyright of slides?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Select input file encoding:
+%%   utf8   - UTF-8, nowadays standard on most operating sytems
+%%   latin1 - ISO-8859-1
+\usepackage[utf8]{inputenc}                 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Select language
+%%
+\usepackage[ngerman]{babel}
+%\usepackage[english]{babel}
+
+\usepackage[T1]{fontenc}                        % Font encoding (don't change!)
+\usepackage{lmodern}                            % Select Linux Modern Fonts (don't change)
+\usepackage{graphicx}                           % needed to include graphics (don't change)
+
+
+%% TikZ can be used to /program/ graphics.
+\usepackage{tikz}                                % comment-out, if you don't need this.
+%% some TikZ-libraries and settings for the examples...
+%\usetikzlibrary{shapes,arrows}                  
+\usetikzlibrary{shadings}           % GW: color gradients
+\usetikzlibrary{calc,positioning,fit,matrix,shadows,chains,arrows,shapes,spy,fadings}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.units,shapes.symbols,shapes.arrows}
+%\usetikzlibrary{pgfplots.external}
+%\tikzexternalize[prefix=tmp/]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% configure title page and author information
+%%-------------------------------
+%% You can always provide a short version: \title[short]{long title}
+%%   title        -- title of the presentation
+%%   subtitle     -- appears below the title
+%%   titlegraphic -- currently not supported
+%%   author       -- name of the author(s)
+%%   institute    -- name of the institution (e.g. chair)
+%%   date         -- date of the presentation (or use \date to insert the date of the PDF generation)
+%%   subject      -- this is only for the PDF meta data
+%%   keywords     -- this is only for the PDF meta data
+%%   logo         -- logo, don't change (given by coporate identity templates)
+\title[NovaCarts-Projekt]{Projektbericht\\MicroNova-Carts}
+\subtitle{wissenschaftlicher Diskurs}
+%\titlegraphic{}            
+\author{Georg Wassen}
+\institute{Lehrstuhl für Betriebssysteme}
+%\date[09.03.2012]{9. März 2011}
+\date{20.12.2012}
+\subject{Projektbericht MicroNova-Carts}          
+\keywords{Hartus}           
+\logo{\includegraphics[height=8mm]{logos/rwth}}     % TODO : move to style files.
+
+
+
+\begin{document}
+
+%%
+%% the title slide is generated automatically (at begin document)
+%%
+
+%%
+%% Use \section{} to divide your presentation into chapters.
+%% The variant \section*{} will not appear in the table of contents and will not generate a section frame
+%%
+\section*{Motivation}
+
+
+%%
+%% Every slide is written in a frame environment (\begin{frame}...\end{frame}).
+%% You should provide a frame title after \begin{frame}.
+%%
+
+\begin{frame}{Motivation}
+  This \LaTeX{} Beamer template imitates the layout of the official RWTH presentation template.
+\end{frame}
+
+%%
+%% Table of contents (automatically collects all \section{} and \subsection{} entries).
+%% (run pdflatex multiple times to get all cross references correct)
+%%
+\begin{frame}{Agenda}
+  \tableofcontents
+\end{frame}
+
+\section{Example slides}
+
+\begin{frame}{Titel der Folie, der auch in die zweite Zeile laufen darf.}
+  \begin{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+          \begin{itemize}
+            \item Optionale dritte Ebene
+          \end{itemize}
+      \end{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Titel der Folie mit Absätzen}
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Folie mit Boxen}
+  \begin{block}{Block 1}
+    Inhalt der ersten Box
+  \end{block}
+  \begin{block}{weitere Box}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{block}
+\end{frame}
+
+
+
+\section{more Examples}
+
+%% currently, subsections only appear in the logical table of contents of the PDF viewer, not on any slide!
+\subsection{a Subsection}
+%% You may use the frame titles to subdivide your presentation
+
+\begin{frame}{How to set columns}
+  %%
+  %% The columns environment is provided by beamer, 
+  %% see "texdoc beamer", Sec. 12.7 'Splitting a Frame into Multiple Columns'
+  %%
+  %% parameter: c - center columns vertically
+  %%            t - align columns on the baseline of the first line
+  %%                don't use, if a column contains (only) a graphic! 
+  %%            T - align columns on the top of the first line (ok with graphics)
+  %%            b - align columns on the bottom line
+  \begin{columns}[T]
+    %% Each column must be given a with.
+    %% Should be given relative to \textwidth:
+    \begin{column}{.45\textwidth}
+      \begin{itemize}
+        \item Item 1
+        \item Item 2
+        \item Item 3
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      \end{itemize}
+    \end{column}
+    \begin{column}{.45\textwidth}
+      %% here, \textwidth is the with of the current column
+      \includegraphics[width=.9\textwidth]{pictures/Tux}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\subsection{another Subsection}
+
+\begin{frame}{How to set columns (2)}
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  \begin{columns}[t]
+    \begin{column}{.4\textwidth}
+      \begin{itemize}
+        \item cat
+        \item dog
+        \item mouse
+        \item elephant
+      \end{itemize}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+\end{frame}
+
+%\section[NovaCarts]{Einführung in die Software NovaCarts} 
+%\include{sec1_NovaCarts}
+
+\section{Examples with uncovering}
+
+\begin{frame}{Piecewise uncovering using pause}
+  Paragraphs and items can be uncovered easily with \texttt{\textbackslash pause}.
+  \pause
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fine grained control}
+  \begin{itemize}
+    \item<1-> First line
+    \item<2>  Second line (appears after first line, disappears again)
+    \item<3-4> Third line (appears before firth one)
+    \item<4-> Fouth line
+    \item<5-> Fifth line
+  \end{itemize}
+  \onslide<6->{
+    Standard behavior is to keep its place, even if not displayed.
+  }
+
+  \only<7>{
+    With \texttt{\textbackslash only}, the element does not occupy place. This may lead to shifting other elements.
+  }
+\end{frame}
+
+
+
+%%
+%% the final slide (contact information) is generated automatically (at end document)
+%%
+
+\end{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{frame}{Titel der Folie, der auch in die zweite Zeile laufen darf.}
+  \begin{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+          \begin{itemize}
+            \item Optionale dritte Ebene
+          \end{itemize}
+      \end{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Titel der Folie mit Absätzen}
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{itemize}
+\end{frame}
+
+\section[Motivation]{Motivation}
+
+\begin{frame}{Test}
+  Test
+\end{frame}
+
+\begin{frame}
+  \begin{itemize}
+    \item Punkt 1
+    \item Punkt 2
+    \item Punkt 3
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{tikzpicture}
+    \node[draw] {Hello, world};
+  \end{tikzpicture}
+\end{frame}
+
+\begin{frame}{Optionaler Titel der Folie mit Bild}
+  \includegraphics[width=\textwidth]{logos/rwth}
+\end{frame}
+
+\end{document}
