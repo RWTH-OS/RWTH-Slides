@@ -19,10 +19,12 @@
 %% |  See the file doc/licenses/LICENSE for more details.         |
 %% ----------------------------------------------------------------
 %%
-%% Version 0.1    20.12.2012    initial presentation using this theme
-%% Version 0.2    08.01.2013    extracted layout and some example slides
+%% Version 0.1    20.12.2012    Initial presentation using this theme
+%% Version 0.2    08.01.2013    Extracted layout and some example slides
+%% Version 0.3    12.01.2013    Improved handling of \subsection (use as frame title)
 %%
 %% TODO
+%%  - allow putting the institute/chair logo (e.g. bottom right, instead of navigation bar)
 %%  - logo on title page and last page (contact info) is not in the same place as in the other pages
 %%  - copyright of slides?
 %%  - prepare and document the creation of handouts
@@ -102,6 +104,7 @@
 
 %%
 %% Use \section{} to divide your presentation into chapters.
+%% Each \section{} generates a section frame automatically.
 %% The variant \section*{} will not appear in the table of contents and will not generate a section frame
 %%
 \section*{Motivation}
@@ -165,9 +168,10 @@
 
 \section{more Examples}
 
-%% currently, subsections only appear in the logical table of contents of the PDF viewer, not on any slide!
+%% 
+%% If a \subsection{} is available, that one is used as first line of the frame title.
+%% 
 \subsection{a Subsection}
-%% You may use the frame titles to subdivide your presentation
 
 \begin{frame}{How to set columns}
   %%
@@ -197,7 +201,6 @@
   \end{columns}
 \end{frame}
 
-\subsection{another Subsection}
 
 \begin{frame}{How to set columns (2)}
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
@@ -221,8 +224,11 @@
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
 \end{frame}
 
-%\section[NovaCarts]{Einführung in die Software NovaCarts} 
-%\include{sec1_NovaCarts}
+\subsection{another subsection}
+
+\begin{frame}
+  This frame does not contain a (dedicated) frame title.
+\end{frame}
 
 \section{Examples with uncovering}
 

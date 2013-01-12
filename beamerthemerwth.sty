@@ -11,8 +11,8 @@
 
 \ProvidesPackageRCS $Header: beamerthemerwth.sty,v 0.1 2012/12/13 wassen Exp $
 
-%\RequirePackage{rotating}														%ermöglicht das Rotieren von Elementen
-\RequirePackage{xspace}
+%\RequirePackage{rotating}							% (to rotate something; currently not needed)
+\RequirePackage{xspace}                             % for \xspace
 
 
 %%
@@ -22,6 +22,9 @@
 
 
 
+%%
+%% add new commands to set web and email address
+%%
 \newcommand*{\webaddress}[1]{}
 \newcommand*{\printwebaddress}{www.rwth-aachen.de}
 \renewcommand*{\webaddress}[1]{\renewcommand*{\printwebaddress}{#1}}
@@ -29,6 +32,9 @@
 \newcommand*{\email}[1]{}
 \newcommand*{\printemail}{}
 \renewcommand*{\email}[1]{\renewcommand*{\printemail}{#1\xspace}}
+
+
+
 
 \mode<presentation>
 

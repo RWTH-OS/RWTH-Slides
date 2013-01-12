@@ -115,7 +115,8 @@
   \begin{beamercolorbox}[sep=0cm,wd=\beamer@leftmargin]{frametitle}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[sep=0cm,wd=.66\paperwidth]{frametitle}
-    \usebeamerfont{frametitle}\insertframetitle
+    %\usebeamerfont{frametitle}\insertframetitle
+    \usebeamerfont{frametitle}\ifx\insertsubsection\@empty\else{\insertsubsection\par}\fi\insertframetitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[sep=0cm,wd=2mm]{frametitle}
   \end{beamercolorbox}%
