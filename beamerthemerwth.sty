@@ -18,12 +18,13 @@
 %%
 %% include RWTH logo (for header)
 %%
-\logo{\includegraphics[height=8mm]{logos/rwth}}     % TODO : move to style files.
+\logo{\includegraphics[height=8mm]{logos/rwth}}
 
 
 
 %%
 %% add new commands to set web and email address
+%% (and, optionally, institute logo
 %%
 \newcommand*{\webaddress}[1]{}
 \newcommand*{\printwebaddress}{www.rwth-aachen.de}
@@ -33,6 +34,9 @@
 \newcommand*{\printemail}{}
 \renewcommand*{\email}[1]{\renewcommand*{\printemail}{#1\xspace}}
 
+\newcommand*{\instlogo}[1]{}
+\newcommand*{\printinstlogo}{}
+\renewcommand*{\instlogo}[1]{\renewcommand*{\printinstlogo}{#1}}
 
 
 

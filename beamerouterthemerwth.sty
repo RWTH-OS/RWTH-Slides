@@ -114,13 +114,13 @@
   \hbox{%
   \begin{beamercolorbox}[sep=0cm,wd=\beamer@leftmargin]{frametitle}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[sep=0cm,wd=.66\paperwidth]{frametitle}
+  \begin{beamercolorbox}[sep=0cm,wd=.6\paperwidth]{frametitle}
     %\usebeamerfont{frametitle}\insertframetitle
     \usebeamerfont{frametitle}\ifx\insertsubsection\@empty\else{\insertsubsection\par}\fi\insertframetitle
   \end{beamercolorbox}%
   \begin{beamercolorbox}[sep=0cm,wd=2mm]{frametitle}
   \end{beamercolorbox}%
-  \begin{beamercolorbox}[sep=0cm,wd=.3\paperwidth,left]{logo}
+  \begin{beamercolorbox}[sep=0cm,wd=.3\paperwidth,right]{logo}
     \insertlogo
   \end{beamercolorbox}%
   }
@@ -151,7 +151,7 @@
   \begin{beamercolorbox}[wd=8mm,ht=7mm,sep=4pt,right]{framenumber in head/foot}
     \usebeamerfont{framenumber}\insertframenumber{}
   \end{beamercolorbox}
-  \begin{beamercolorbox}[sep=2pt,wd=.9\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
+  \begin{beamercolorbox}[sep=2pt,wd=.6\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
     \hbox{%
     \usebeamerfont{title in head/foot}\insertshorttitle%
     }\par%
@@ -160,10 +160,12 @@
     \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
     \expandafter\beamer@ifempty\expandafter{\beamer@shortdate}{}{~|~\insertshortdate}%
     \hskip5mm%
-    \usebeamertemplate***{navigation symbols}\hskip5mm%
     }%
   \end{beamercolorbox}%
-  
+  \hfill%
+  \begin{beamercolorbox}[sep=2pt,wd=.3\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \ifx\printinstlogo\@empty{\usebeamertemplate***{navigation symbols}}\else{\printinstlogo}\fi%
+  \end{beamercolorbox}%
   \vskip0pt%
 }
 

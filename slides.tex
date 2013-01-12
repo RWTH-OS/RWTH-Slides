@@ -21,10 +21,10 @@
 %%
 %% Version 0.1    20.12.2012    Initial presentation using this theme
 %% Version 0.2    08.01.2013    Extracted layout and some example slides
-%% Version 0.3    12.01.2013    Improved handling of \subsection (use as frame title)
+%% Version 0.3    12.01.2013    Improved handling of \subsection (use as frame title), 
+%%                              Support institute's logo
 %%
 %% TODO
-%%  - allow putting the institute/chair logo (e.g. bottom right, instead of navigation bar)
 %%  - logo on title page and last page (contact info) is not in the same place as in the other pages
 %%  - copyright of slides?
 %%  - prepare and document the creation of handouts
@@ -83,17 +83,18 @@
 %%   subject      -- This is only for the PDF meta data
 %%   keywords     -- This is only for the PDF meta data
 %%   logo         -- Logo, don't change (given by coporate identity templates)
+%%   instlogo     -- Logo of institute/chair, if given, will be shown in foot line
 \title[RWTH presentation template]{Official RWTH presentation template\\with examples}
 \subtitle{Subtitle}
 %\titlegraphic{}            
 \author{Georg Wassen}
-\email{wassen@lfbs.rwth-aachen.de}
+\email{wassen@lfbs.rwth-aachen.de}                          % optionally
 \institute{Lehrstuhl für Betriebssysteme}
-\webaddress{www.lfbs.rwth-aachen.de}
+\webaddress{www.lfbs.rwth-aachen.de}                        % overrides www.rwth-aachen.de
 \date{20.12.2012}
 \subject{RWTH presentation template}          
 \keywords{RWTH, Latex Beamer, template}
-
+%\instlogo{\includegraphics[height=8mm]{logos/lfbs}}        % optionally
 
 
 \begin{document}
