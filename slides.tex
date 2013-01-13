@@ -21,12 +21,14 @@
 %%
 %% Version 0.1    20.12.2012    Initial presentation using this theme
 %% Version 0.2    08.01.2013    Extracted layout and some example slides
-%% Version 0.3    12.01.2013    Improved handling of \subsection (use as frame title), 
+%% Version 0.3    12.01.2013    Improved handling of \subsection (used as frame title), 
 %%                              Support institute's logo
 %%
 %% TODO
 %%  - logo on title page and last page (contact info) is not in the same place as in the other pages
 %%  - copyright of slides?
+%%  - count slides with same subsection (needs probably overloading \subsection) and print: 1/N
+%%    (needs to count the number of frames in each subsection)
 %%  - prepare and document the creation of handouts
 
 
@@ -40,8 +42,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Select language
 %%
-%\usepackage[ngerman]{babel}
-\usepackage[english]{babel}
+%\usepackage[ngerman]{babel}        % Deutsch, neue Rechtschreibung
+\usepackage[english]{babel}         % English
 
 
 
@@ -50,9 +52,11 @@
 \usepackage[T1]{fontenc}                        % Font encoding (don't change!)
 \usepackage{lmodern}                            % Select Linux Modern Fonts (don't change)
 \usepackage{graphicx}                           % needed to include graphics (don't change)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% import packages for content
+%%
 \usepackage{listings}                           % for lstlisting and \lstinline|..|
-
-
 %% TikZ can be used to /program/ graphics.
 \usepackage{tikz}                                % comment-out, if you don't need this.
 %% some TikZ-libraries and settings for the examples...
@@ -83,7 +87,7 @@
 %%   subject      -- This is only for the PDF meta data
 %%   keywords     -- This is only for the PDF meta data
 %%   logo         -- Logo, don't change (given by coporate identity templates)
-%%   instlogo     -- Logo of institute/chair, if given, will be shown in foot line
+%%   instlogo     -- Logo of institute/chair, if given: will be shown in foot line
 \title[RWTH presentation template]{Official RWTH presentation template\\with examples}
 \subtitle{Subtitle}
 %\titlegraphic{}            
