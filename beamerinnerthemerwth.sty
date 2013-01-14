@@ -9,19 +9,23 @@
 
 \ProvidesPackageRCS $Header: beamerinnerthemelfbs.sty,v 1.4 2007/07/23 20:48:30 tantau Exp $
 
+\RequirePackage{marvosym}           % for \MVRightArrow (used in: itemize subitem)
 
 \mode<presentation>
 
-% 
-% Listen-Layout
-%
+%% 
+%% Listen-Layout
+%% (this is typographically inelegant, but it is according to the provided layout)
+%%
 % 1. Ebene: Quadrat
 \setbeamertemplate{itemize item}[square]
-% 2. Ebene: Pfeil       TODO : der Pfeil in der Powerpoint-Vorlage sieht anders aus.
-\defbeamertemplate{itemize subitem}{arrow}{$\rightarrow$}
-%\setbeamertemplate{itemize subitem}[arrow]
-%           typografisch schöner: Dreieck (TODO : verstößt zwar gegen Vorlage, sieht aber besser aus!)
-\setbeamertemplate{itemize subitem}[triangle]
+% 2. Ebene: Pfeil       
+%\defbeamertemplate{itemize subitem}{arrow}{$\rightarrow$}
+\defbeamertemplate{itemize subitem}{arrow}{\MVRightArrow}       % from package marvosym
+
+\setbeamertemplate{itemize subitem}[arrow]
+%           typografically nicer: trigangle (but it would conflict with the given layout...)
+%\setbeamertemplate{itemize subitem}[triangle]
 
 % 3. Ebene: rechte Guillemets (zwei größer-als-Zeichen: >> )
 \defbeamertemplate{itemize subsubitem}{double arrow}{\frqq}
