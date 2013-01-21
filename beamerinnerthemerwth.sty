@@ -46,31 +46,35 @@
 
 \AtBeginDocument
 {
-\frame[plain,t]{\titlepage}
+  \iflanguage{ngerman}{\pdfbookmark[2]{Titelseite}{title}}{}
+  \iflanguage{english}{\pdfbookmark[2]{Title page}{title}}{}
+
+  \frame[plain,t]{\titlepage}
 }
 
 \AtEndDocument
 {
-\begin{frame}[plain,t]
-  \hfill\insertlogo
 
-  \vspace{4cm}
-  \scriptsize
-  \protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
-  \protect\iflanguage{english}{Thank you for your kind attention!}{}
+  \begin{frame}[plain,t]
+    \hfill\insertlogo
+
+    \vspace{4cm}
+    \scriptsize
+    \protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
+    \protect\iflanguage{english}{Thank you for your kind attention!}{}
 
 
-  \vspace{4ex}
-  \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{rwthblue}\printemail}}\fi
+    \vspace{4ex}
+    \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{rwthblue}\printemail}}\fi
 
-  \vspace{2ex}
-  RWTH Aachen University\\
-  Templergraben 55\\
-  52056 Aachen
+    \vspace{2ex}
+    RWTH Aachen University\\
+    Templergraben 55\\
+    52056 Aachen
 
-  \vspace{2ex}
-  {\color{rwthblue}\url{\printwebaddress}}
-\end{frame}
+    \vspace{2ex}
+    {\color{rwthblue}\url{\printwebaddress}}
+  \end{frame}
 }
 
 
