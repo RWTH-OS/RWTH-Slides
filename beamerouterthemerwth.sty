@@ -116,7 +116,10 @@
   \end{beamercolorbox}%
   \begin{beamercolorbox}[sep=0cm,wd=.6\paperwidth]{frametitle}
     %\usebeamerfont{frametitle}\insertframetitle
+    \begin{minipage}[b]{.6\paperwidth}
+      \raggedright
     \usebeamerfont{frametitle}\ifx\insertsubsection\@empty\else{\insertsubsection\par}\fi\insertframetitle
+    \end{minipage}
   \end{beamercolorbox}%
   \begin{beamercolorbox}[sep=0cm,wd=2mm]{frametitle}
   \end{beamercolorbox}%
@@ -154,7 +157,7 @@
   \begin{beamercolorbox}[sep=2pt,wd=.6\paperwidth,ht=2.25ex,dp=1ex]{title in head/foot}%
     \hbox{%
     \usebeamerfont{title in head/foot}\insertshorttitle%
-    }\par%
+    }\par\vspace{1pt}%
     \hbox{%
     \hskip2pt\usebeamercolor[fg]{author in head/foot}\usebeamerfont{author in head/foot}\insertshortauthor%
     \expandafter\beamer@ifempty\expandafter{\beamer@shortinstitute}{}{~|~\insertshortinstitute}%
