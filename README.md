@@ -17,7 +17,7 @@ This template contains the following files:
     beamerinnerthemerwth.sty   - main inner theme (should not be modified)
     beamerouterthemerwth.sty   - main outer theme (should not be modified)
     Makefile                   - to generate a PDF on UNIX systems
-    logos/logo1.pdf            - place holder for the RWTH logo
+    logos/logo.pdf            - place holder for the RWTH logo
     pictures/Tux.png           - example for pictures
 
 
