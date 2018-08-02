@@ -1,4 +1,6 @@
 % Copyright 2007 by Till Tantau
+% Copyright 2013 by Georg Wassen
+% Copyright 2016-2018 by Gerrit Toehgiono
 %
 % This file may be distributed and/or modified
 %
@@ -7,19 +9,25 @@
 %
 % See the file doc/licenses/LICENSE for more details.
 
-\ProvidesPackageRCS $Header: beamerinnerthemelfbs.sty,v 1.4 2007/07/23 20:48:30 tantau Exp $
+\ProvidesPackageRCS $Header: beamerinnerthemerwth.sty,v 1.5 2018/03/31 23:32:34 $
 
-\RequirePackage{marvosym}           % for \MVRightArrow (used in: itemize subitem)
+\RequirePackage{marvosym} % for \MVRightArrow (used in: itemize subitem)
+\RequirePackage{hyperref} % Hyperlinks
+\RequirePackage{multicol} % multi-column text
+\RequirePackage{etoolbox}
+\RequirePackage{ifthen}
+
 
 \mode<presentation>
 
-%% 
+
+%%
 %% Listen-Layout
 %% (this is typographically inelegant, but it is according to the provided layout)
 %%
 % 1. Ebene: Quadrat
 \setbeamertemplate{itemize item}[square]
-% 2. Ebene: Pfeil       
+% 2. Ebene: Pfeil
 %\defbeamertemplate{itemize subitem}{arrow}{$\rightarrow$}
 \defbeamertemplate{itemize subitem}{arrow}{\MVRightArrow}       % from package marvosym
 
@@ -27,22 +35,102 @@
 %           typografically nicer: trigangle (but it would conflict with the given layout...)
 %\setbeamertemplate{itemize subitem}[triangle]
 
-% 3. Ebene: rechte Guillemets (zwei größer-als-Zeichen: >> )
-\defbeamertemplate{itemize subsubitem}{double arrow}{\frqq}
-\setbeamertemplate{itemize subsubitem}[double arrow]
+%% 3. Ebene: Pfleil
+\defbeamertemplate{itemize subsubitem}{arrow}{\MVRightArrow}    % from package marvosym
+\setbeamertemplate{itemize subsubitem}[arrow]
+%% rechte Guillemets (zwei größer-als-Zeichen: >> )
+%\defbeamertemplate{itemize subsubitem}{double arrow}{\frqq}
+%\setbeamertemplate{itemize subsubitem}[double arrow]
 
+
+%% TOC-Layout
+% sections
+\setbeamertemplate{section in toc}{%
+  \leavevmode\leftskip=1.75ex%
+  \llap{%
+    \usebeamerfont*{section number projected}%
+    \usebeamercolor[fg]{section number projected}%
+    {\hfil\inserttocsectionnumber.\hfil}%
+  }%
+  \kern1ex\inserttocsection\par
+}
+
+
+% subsections
+\setbeamertemplate{subsection in toc}{%
+  \leavevmode\leftskip=4ex%
+  \llap{%
+    \usebeamerfont*{subsection number projected}%
+    \usebeamercolor[fg]{subsection number projected}%
+    {\hfil\MVRightArrow\hfil}%
+  }%
+  \kern1ex\inserttocsubsection\par%
+}
+
+\makeatletter
+\patchcmd{\beamer@sectionintoc}{\vskip1.5em}{\vskip0.5em}{}{}
+\makeatother
 
 
 \AtBeginSection[] % Do nothing for \section*
 {
-\begin{frame}<beamer>
-  \frametitle{~}
-  \vspace{3cm}
-  \begin {beamercolorbox}[sep=0pt]{section}
-    \usebeamerfont{section}\insertsection
-  \end {beamercolorbox}
-\end{frame}
+  \ifthenelse{\equal{\printsecstart}{}}%
+  {% secstart empty
+  }%
+  {% keine Sektionsübersicht / nur Sektionstitel
+    \ifthenelse{\equal{\printsecstart}{sectitle}}%
+    {%
+      \begin{frame}<beamer>
+        \frametitle{~}
+        \vspace{3cm}
+        \begin {beamercolorbox}[sep=0pt]{section}
+        \usebeamerfont{section}\insertsection
+        \end {beamercolorbox}
+      \end{frame}
+    }
+    {
+      % Übersicht nach jeder Sektion / ganze Sektion wird aufgeblendet
+      \ifthenelse{\equal{\printsecstart}{fulltoc}}%
+      {%
+        \begin{frame}<beamer>
+          % This shouldn't be fixed.
+          \frametitle{Outline}
+          % Highlight just the current subsection and its parent section
+          \begin{multicols*}{2}
+            \tableofcontents
+          \end{multicols*}
+        \end{frame}
+      }
+      {
+        % Übersicht nach jeder Sektion / jede Untersektion wird aufgeblendet
+        \ifthenelse{\equal{\printsecstart}{sectoc}}%
+        {%
+          \begin{frame}<beamer>[t]
+            \frametitle{Outline}
+            % wrap toc if too long
+            \begin{multicols*}{2}
+              \tableofcontents[current,currentsection,hideothersubsections]
+            \end{multicols*}
+          \end{frame}
+        }
+        {
+          \errmessage
+        }
+      }
+    }
+  }
 }
+
+
+% Übersicht nach jeder subsection / jede Untersektion wird aufgeblendet
+%\AtBeginSubsection[] % Do nothing for \subsection*
+%{
+%\begin{frame}<beamer|handout>
+%  \frametitle{Outline}
+%    \tableofcontents[current,currentsection,currentsubsection,hideothersubsections]
+%\end{frame}
+%}
+
 
 \AtBeginDocument
 {
@@ -52,17 +140,28 @@
   \frame[plain,t]{\titlepage}
 }
 
+
 \AtEndDocument
 {
-
   \begin{frame}[plain,t]
-    \hfill\insertlogo
+    \hbox{%
+      \begin{beamercolorbox}[sep=0cm,wd=.525\paperwidth]{frametitle}
+        \begin{minipage}[t]{.5\paperwidth}
+          \raggedright\vskip-7.5mm
+        \end{minipage}
+      \end{beamercolorbox}%
+      \begin{minipage}[t]{.4\paperwidth}
+        \begin{beamercolorbox}[sep=0cm,wd=.4\paperwidth,right]{logo}
+          \insertlogo\hspace{2mm}
+        \end{beamercolorbox}%
+      \end{minipage}
+    }
 
     \vspace{4cm}
     \scriptsize
-    \protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
-    \protect\iflanguage{english}{Thank you for your kind attention!}{}
-
+    %\protect\iflanguage{ngerman}{Vielen Dank f\"ur Ihre Aufmerksamkeit!}{}
+    %\protect\iflanguage{ngerman}{Vielen Dank f\"ur Eure Aufmerksamkeit!}{}
+    %\protect\iflanguage{english}{Thank you for your kind attention!}{}
 
     \vspace{4ex}
     \textbf{\insertauthor}\ifx\printemail\@empty\else{~--~{\color{rwthblue}\printemail}}\fi
@@ -77,11 +176,4 @@
   \end{frame}
 }
 
-
-%\setbeamertemplate{itemize item}[circle]
-%\setbeamertemplate{itemize subitem}[default]
-%\setbeamertemplate{itemize subsubitem}[default]
-%\setbeamertemplate{sections/subsections in toc}[ball unnumbered]
-
 \mode<all>
-

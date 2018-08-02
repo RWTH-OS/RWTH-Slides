@@ -1,0 +1,296 @@
+%% Sections
+
+%%
+%% Use \section{} to divide your presentation into chapters.
+%% Each \section{} generates a section frame automatically.
+%% The variant \section*{} will not appear in the table of contents and will not generate a section frame
+%%
+\section*{Motivation}
+
+
+%%
+%% Every slide is written in a frame environment (\begin{frame}...\end{frame}).
+%% You should provide a frame title after \begin{frame}.
+%%
+
+\begin{frame}{Motivation}
+  This \LaTeX{} Beamer template imitates the layout of the old official RWTH presentation template.
+\end{frame}
+
+%%
+%% Table of contents (automatically collects all \section{} and \subsection{} entries).
+%% (run pdflatex multiple times to get all cross references correct)
+%%
+\begin{frame}[t]{Agenda}
+%\begin{multicols}{2}
+  \tableofcontents[hideallsubsections]
+%\end{multicols}
+\end{frame}
+
+\section{Example slides}
+
+\begin{frame}{Titel der Folie, der auch in die zweite Zeile laufen darf.}
+  \begin{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+          \begin{itemize}
+            \item Optionale dritte Ebene
+          \end{itemize}
+      \end{itemize}
+    \item Liste mit Aufzählungszeichen
+    \item Liste mit Aufzählungszeichen
+      \begin{itemize}
+        \item Zweite Ebene
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Noch eine Folie mit Aufzählungen}
+  \begin{enumerate}
+    \item Erster Punkt
+      \begin{enumerate}
+        \item Erster Unterpunkt
+        \item Zweiter Unterpunkt
+      \end{enumerate}
+    \item Zweiter Punkt
+      \begin{itemize}
+        \item Erster regulärer Unterpunkt
+        \item Zweiter regulärer Unterpunkt
+      \end{itemize}
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Titel der Folie mit Absätzen}
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Folie mit Boxen}
+  \begin{block}{Block 1}
+    Inhalt der ersten Box
+  \end{block}
+  \begin{block}{weitere Box}
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{block}
+\end{frame}
+
+
+
+\section{more Examples}
+
+%%
+%% If a \subsection{} is available, that one is used as first line of the frame title.
+%%
+\subsection{a Subsection}
+
+\begin{frame}{How to set columns}
+  %%
+  %% The columns environment is provided by beamer,
+  %% see "texdoc beamer", Sec. 12.7 'Splitting a Frame into Multiple Columns'
+  %%
+  %% parameter: c - center columns vertically
+  %%            t - align columns on the baseline of the first line
+  %%                don't use, if a column contains (only) a graphic!
+  %%            T - align columns on the top of the first line (ok with graphics)
+  %%            b - align columns on the bottom line
+  \begin{columns}[T]
+    %% Each column must be given a with.
+    %% Should be given relative to \textwidth:
+    \begin{column}{.45\textwidth}
+      \begin{itemize}
+        \item Item 1
+        \item Item 2
+        \item Item 3
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      \end{itemize}
+    \end{column}
+    \begin{column}{.45\textwidth}
+      %% here, \textwidth is the with of the current column
+      \includegraphics[width=.9\textwidth]{pictures/Tux}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+
+\begin{frame}{How to set columns (2)}
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \begin{columns}[t]
+    \begin{column}{.4\textwidth}
+      \begin{itemize}
+        \item cat
+        \item dog
+        \item mouse
+        \item elephant
+      \end{itemize}
+    \end{column}
+    \begin{column}{.6\textwidth}
+      \begin{itemize}
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+\end{frame}
+
+\subsection{another subsection}
+
+\begin{frame}
+  This frame does not contain a (dedicated) frame title.
+\end{frame}
+
+\section{Examples with uncovering}
+
+\begin{frame}{Piecewise uncovering using pause}
+  Paragraphs and items can be uncovered easily with \texttt{\textbackslash pause}.
+  \pause
+  \begin{itemize}
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      \pause
+    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Fine grained control}
+  \begin{itemize}
+    \item<1-> First line
+    \item<2>  Second line (appears after first line, disappears again)
+    \item<3-4> Third line (appears before firth one)
+    \item<4-> Fouth line
+    \item<5-> Fifth line
+  \end{itemize}
+  \onslide<6->{
+    Standard behavior with \texttt{\textbackslash onslide} is to keep its place, even if not displayed.
+  }
+
+  \only<7>{
+    With \texttt{\textbackslash only}, the element does not occupy place. This may lead to shifting other elements.
+  }
+\end{frame}
+
+\section{Quellcode}
+
+%%
+%% This requires the package listings
+%%
+%% Slides containing lstlisting environments, \lstinline|..| or \verb|..|
+%% the option "fragile" must be provided!
+%%
+\begin{frame}[fragile]{Example-Code: Hallo Welt!}
+  \begin{lstlisting}[language=C,gobble=4]
+    #include <stdio.h>
+
+    void main (void) {
+      printf("Hallo Welt!\n");
+    }
+  \end{lstlisting}
+\end{frame}
+
+
+
+
+\section{TikZ example}
+
+%%
+%% This requires the package tikz
+%%
+%% The animation uses the same overlay specification<2-3> as the items or \onslide
+%%
+\begin{frame}{animated graphics}
+
+  % define some styles
+  \tikzstyle{format} = [draw, thin, fill=blue!20]
+  \tikzstyle{medium} = [ellipse, draw, thin, fill=green!20, minimum height=2.5em]
+
+  \begin{figure}
+    \begin{tikzpicture}[node distance=3cm, auto,>=latex', thick]
+      % We need to set a bounding box first. Otherwise the diagram
+      % will change position for each frame.
+      \path[use as bounding box] (-1,0) rectangle (10,-2);
+      \path[->]<1-> node[format] (tex) {.tex file};
+      \path[->]<2-> node[format, right of=tex] (dvi) {.dvi file}
+        (tex) edge node {\TeX} (dvi);
+      \path[->]<3-> node[format, right of=dvi] (ps) {.ps file}
+        node[medium, below of=dvi] (screen) {screen}
+        (dvi) edge node {dvips} (ps)
+        edge node[swap] {xdvi} (screen);
+      \path[->]<4-> node[format, right of=ps] (pdf) {.pdf file}
+        node[medium, below of=ps] (print) {printer}
+        (ps) edge node {ps2pdf} (pdf)
+        edge node[swap] {gs} (screen)
+        edge (print);
+      \path[->]<5-> (pdf) edge (screen)
+        edge (print);
+      \path[->, draw]<6-> (tex) -- +(0,1) -| node[near start] {pdf\TeX} (pdf);
+    \end{tikzpicture}
+  \end{figure}
+
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%\begin{frame}{Titel der Folie, der auch in die zweite Zeile laufen darf.}
+%  \begin{itemize}
+%    \item Liste mit Aufzählungszeichen
+%    \item Liste mit Aufzählungszeichen
+%      \begin{itemize}
+%        \item Zweite Ebene
+%          \begin{itemize}
+%            \item Optionale dritte Ebene
+%          \end{itemize}
+%      \end{itemize}
+%    \item Liste mit Aufzählungszeichen
+%    \item Liste mit Aufzählungszeichen
+%      \begin{itemize}
+%        \item Zweite Ebene
+%      \end{itemize}
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}{Titel der Folie mit Absätzen}
+%  \begin{itemize}
+%    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+%    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+%    \item Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+%  \end{itemize}
+%\end{frame}
+%
+%\section[TOC-Titel]{Section-Titel}
+%
+%\begin{frame}{Test}
+%  Test
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{itemize}
+%    \item Punkt 1
+%    \item Punkt 2
+%    \item Punkt 3
+%  \end{itemize}
+%\end{frame}
+%
+%\begin{frame}
+%  \begin{tikzpicture}
+%    \node[draw] {Hello, world};
+%  \end{tikzpicture}
+%\end{frame}
+%
+%\begin{frame}{Optionaler Titel der Folie mit Bild}
+%\centerline{%
+%  \includegraphics[width=\textwidth]{logos/rwth}
+%  }
+%\end{frame}
+

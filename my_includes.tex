@@ -1,0 +1,55 @@
+%% Custom packages and definitions
+
+% Mathematikumgebung
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{sansmath}
+
+% tabularx -> bessere "tabular"-Umgebung
+\usepackage{tabularx}
+
+% zusätzliche Formatbezeichner für die tabularx-Umgebung
+\newcolumntype{L}{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}X}
+\newcolumntype{R}{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}X}
+\newcolumntype{C}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}X}
+
+% center text vertically in tabularx(column)
+%\renewcommand{\tabularxcolumn}[1]{>{\large}m{#1}}
+
+% Bessere Tabellenlinien
+\usepackage{booktabs}
+
+% Tabellenzeilen für booktabs anpassen -> call on frame with table
+\newcommand{\fixbooktabsrowhight}{%
+  \setlength{\aboverulesep}{0pt}
+  \setlength{\belowrulesep}{0pt}
+  \setlength{\extrarowheight}{.5ex}
+}
+
+% Zellen über mehrere Zeilen
+\usepackage{multirow}
+
+% Source, e.g. for images
+\setbeamercolor{framesource}{fg=gray}
+\setbeamerfont{framesource}{size=\tiny}
+
+\usepackage[absolute,overlay]{textpos}
+\newcommand{\source}[1]{\begin{textblock*}{\linewidth}(1ex,\paperheight-2.75em)
+  \begin{beamercolorbox}[left]{framesource}
+    \usebeamerfont{framesource}\usebeamercolor[fg]{framesource} Source: {#1}
+  \end{beamercolorbox}
+\end{textblock*}}
+
+\usepackage{etoolbox}
+%% short titles for toc \(sub)section[SHORTTITLE for toc]{LONGTITLE for slide}
+\makeatletter
+% Insert [short title] for \section in ToC
+\patchcmd{\beamer@section}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
+% Insert [short title] for \section in Navigation
+\patchcmd{\beamer@section}{{\the\c@section}{\secname}}{{\the\c@section}{#1}}{}{}
+% Insert [short title] for \subsection in ToC
+\patchcmd{\beamer@subsection}{{#2}{\the\c@page}}{{#1}{\the\c@page}}{}{}
+% Insert [short title] for \subsection  in Navigation
+\patchcmd{\beamer@subsection}{{\the\c@subsection}{#2}}{{\the\c@subsection}{#1}}{}{}
+\makeatother
+

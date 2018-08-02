@@ -1,4 +1,6 @@
 % Copyright 2007 by Till Tantau
+% Copyright 2013 by Georg Wassen
+% Copyright 2016-2018 by Gerrit Toehgiono
 %
 % This file may be distributed and/or modified
 %
@@ -7,7 +9,7 @@
 %
 % See the file doc/licenses/LICENSE for more details.
 
-\ProvidesPackageRCS $Header: beamercolorthemelfbs.sty,v 1.4 2007/01/28 20:48:24 tantau Exp $
+\ProvidesPackageRCS $Header: beamercolorthemerwth.sty,v 1.5 2018/03/31 23:30:17 $
 
 
 \mode<presentation>
@@ -21,19 +23,49 @@
 %% define colors rwthblue and rwthlightblue
 %%
 
-%\xdefinecolor{rwthblue}{rgb}{0,0.48,0.73}
-
 % rwth blue: RGB 0-84-159              0 - 0.3294 - 0.6235
 \xdefinecolor{rwthblue}{rgb}{0,0.3294,0.6235}
 % rwth light blue: RGB 142-186-229     0.5569 - 0.7294 - 0.8980
 \xdefinecolor{rwthlightblue}{rgb}{0.5569,0.7294,0.8980}
 
+% additional colors according to the corporate design guidelines
+\xdefinecolor{rwthmagenta}{RGB}{227,0,102}
+\xdefinecolor{rwthlightmagenta}{RGB}{241,158,177}
+
+\xdefinecolor{rwthyellow}{RGB}{255,237,0}
+\xdefinecolor{rwthlightyellow}{RGB}{255,245,155}
+
+\xdefinecolor{rwthpetrol}{RGB}{0,97,101}
+\xdefinecolor{rwthlightpetrol}{RGB}{125,164,167}
+
+\xdefinecolor{rwthturquoise}{RGB}{0,152,161}
+\xdefinecolor{rwthtlighturquoise}{RGB}{137,204,207}
+
+\xdefinecolor{rwthgreen}{RGB}{87,171,39}
+\xdefinecolor{rwthlightgreen}{RGB}{184,214,152}
+
+\xdefinecolor{rwthmaygreen}{RGB}{189,205,0}
+\xdefinecolor{rwthlightmaygreen}{RGB}{189,205,0}
+
+\xdefinecolor{rwthorange}{RGB}{246,168,0}
+\xdefinecolor{rwthlightorange}{RGB}{253,212,143}
+
+\xdefinecolor{rwthred}{RGB}{204,7,30}
+\xdefinecolor{rwthlightred}{RGB}{230,150,121}
+
+\xdefinecolor{rwthbordeaux}{RGB}{161,16,53}
+\xdefinecolor{rwthlightbordeaux}{RGB}{205,139,135}
+
+\xdefinecolor{rwthviolet}{RGB}{97,33,88}
+\xdefinecolor{rwthlightviolet}{RGB}{168,133,158}
+
+\xdefinecolor{rwthpurple}{RGB}{122,111,172}
+\xdefinecolor{rwthlightpurple}{RGB}{188,181,215}
 
 
 %%
 %% settings for the title page
 %%
-
 %\setbeamercolor{title in titlepage}{fg=rwthblue}
 \setbeamercolor{title}{fg=rwthblue}
 
@@ -42,40 +74,37 @@
 \setbeamercolor{subtitle}{fg=black}
 \setbeamercolor{author in head/foot}{fg=black}
 
-
-
 %%
 %% settings for the outer theme
 %%
-
 \setbeamercolor{framenumber in head/foot}{fg=white,bg=rwthblue}
-
 \setbeamercolor{frametitle}{fg=rwthblue}
-
 \setbeamercolor{section}{fg=rwthblue}
 
 %%
 %% settings for the table of contents
 %%
-
-\setbeamercolor{section in toc}{fg=rwthblue}
-\setbeamercolor{subsection in toc}{fg=rwthblue}
-
+\setbeamercolor{section in toc}{fg=black}
+%\setbeamercolor{subsection in toc}{fg=rwthblue}
+\setbeamercolor{subsection in toc}{fg=black}
+\setbeamercolor{section number projected}{fg=rwthorange}
+\setbeamercolor{subsection number projected}{fg=rwthblue}
 
 %%
 %% settings for the inner theme (e.g. itemize)
 %%
-
-\setbeamercolor{itemize item}{fg=rwthblue}
+\setbeamercolor{itemize item}{fg=rwthorange}
 \setbeamercolor{itemize subitem}{fg=rwthblue}
-\setbeamercolor{itemize subsubitem}{fg=gray}
+\setbeamercolor{itemize subsubitem}{fg=rwthblue}
 %\setbeamercolor{itemize subsubbody}{fg=red}
 
-
-
 %%
-%% old settings (deactivated) for reference
+%% various settings (deactivated) for reference
 %%
+
+\setbeamercolor{block title}{fg=rwthblue}
+\setbeamercolor{block title alerted}{fg=rwthred}
+\setbeamercolor{block title example}{fg=rwthgreen}
 
 %\setbeamercolor{sidebar text}{fg=white}
 %\setbeamercolor{sidebar right}{fg=black,bg=red}
@@ -85,6 +114,4 @@
 %\setbeamercolor{head text}{fg=black}
 %\setbeamercolor{normal text}{fg=black,bg=white}
 
-
 \mode<all>
-

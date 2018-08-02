@@ -1,4 +1,6 @@
 % Copyright 2007 by Till Tantau
+% Copyright 2013 by Georg Wassen
+% Copyright 2016-2018 by Gerrit Toehgiono
 %
 % This file may be distributed and/or modified
 %
@@ -7,15 +9,15 @@
 %
 % See the file doc/licenses/LICENSE for more details.
 
-\ProvidesPackageRCS $Header: beamerfontthemelfbs.sty,v 1.13 2007/01/28 20:48:29 tantau Exp $
+\ProvidesPackageRCS $Header: beamerfontthemerwth.sty,v 1.13 2018/03/31 23:31:11 $
 
 
 \mode<presentation>
 
+
 %%
 %% font settings for the rwth theme
 %%
-
 
 %%
 %% settings for the title page
@@ -29,16 +31,16 @@
 %%
 %% settings for the header and footer (outer theme)
 %%
-\setbeamerfont{framenumber}{size=\small}
+\setbeamerfont{framenumber}{size=\scriptsize}
 
 \setbeamerfont{frametitle}{series=\bfseries}
+\setbeamerfont{frametitle}{size=\large}
 
 \setbeamerfont{section}{size=\Large,series=\bfseries}
 
 
-
 %%
-%% old settings (deactivated) for reference
+%% various settings (deactivated); settings (activated) to match the RWTH theme
 %%
 
 %\setbeamerfont{normal text}{} % ignored currently
@@ -71,11 +73,14 @@
 %\setbeamerfont{part name}{size=\Large}
 %\setbeamerfont{part title}{parent=title}
 
-%\setbeamerfont{section in toc}{parent=structure}
-%\setbeamerfont{section in toc shaded}{parent=section in toc}
+\setbeamerfont{section in toc}{parent=structure,series=\bfseries,size=\normalsize}
+\setbeamerfont{subsection in toc}{parent=structure,size=\small}
+\setbeamerfont{section in toc shaded}{parent=section in toc,series=\mdseries}
+\setbeamerfont{subsection in toc shaded}{parent=subsection in toc,series=\mdseries}
 %\setbeamerfont{section in head/foot}{size=\Large,series=\bfseries}
 %\setbeamerfont{section in sidebar}{size=\tiny}
-%\setbeamerfont{section number projected}{size=\small,parent={section in toc,projected text}}
+\setbeamerfont{section number projected}{size=\normalsize,parent={section in toc,projected text},series=\bfseries}
+\setbeamerfont{subsection number projected}{size=\small,parent={subsection in toc,projected text},series=\bfseries}
 
 %\setbeamerfont{subsection in toc}{}
 %\setbeamerfont{subsection in toc shaded}{parent=subsection in toc}
@@ -122,11 +127,15 @@
 %\setbeamerfont{itemize subsubitem}{parent=subsubitem}
 
 %\setbeamerfont{enumerate item}{parent=item}
+\setbeamerfont{enumerate item}{parent=default}
+\setbeamerfont{enumerate subitem}{parent=default}
 %\setbeamerfont{enumerate subitem}{parent=subitem}
 %\setbeamerfont{enumerate subsubitem}{parent=subsubitem}
 
+\setbeamerfont{itemize/enumerate body}{series=\bfseries}
 %\setbeamerfont{itemize/enumerate body}{}
 %\setbeamerfont{itemize/enumerate subbody}{size=\small}
+\setbeamerfont{itemize/enumerate subbody}{series=\mdseries}
 %\setbeamerfont{itemize/enumerate subsubbody}{size=\footnotesize}
 
 

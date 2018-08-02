@@ -1,8 +1,33 @@
+# Swap files
+.*.swp
+
+# LaTeX temporary files
 *.aux
+*.auxlock
 *.log
-*.nav
-*.out
-*.snm
 *.toc
+*.fls
+
+# PDF output - usually a bad idea to keep this in Git
+#*.pdf
+
+# Latexmk
+*.fdb_latexmk
+
+# SyncTeX
+*.synctex.gz
+*.synctex(busy)
+
+# LaTeX Beamer
+*.snm
 *.vrb
 *.auxlock
+*.nav
+*.out
+
+# BibTeX
+*.bbl
+*.blg
+
+# RWTH logos
+logos/rwth*
