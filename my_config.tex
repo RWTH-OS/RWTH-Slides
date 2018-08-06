@@ -1,0 +1,48 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% configure title page and author information
+%%-------------------------------
+%% You can always provide a short version: \title[short]{long title}
+%%   title        -- Title of the presentation
+%%                   The title appears on the first page and may contain a line break: \\ 
+%%                   The short title appears in the footer line
+%%   subtitle     -- Appears below the title
+%%   titlegraphic -- Currently not supported
+%%   author       -- Name of the author(s)
+%%   email        -- E-Mail address of author (optional)
+%%   institute    -- Name of the institution (e.g. chair)
+%%   webaddress   -- Web address (default is www.rwth-aachen.de), displayed on last slide
+%%   date         -- Date of the presentation (or use \date to insert the date of the PDF generation)
+%%   subject      -- This is only for the PDF meta data
+%%   keywords     -- This is only for the PDF meta data
+%%   logo         -- header Logo, don't change (given by coporate identity templates)
+%%   instlogo     -- Logo of institute/chair, if given: will be shown in foot line
+\title[RWTH presentation template]{(In--)Official RWTH presentation template\\with examples}
+\subtitle{Subtitle}
+%\titlegraphic{}
+\author{Max Mustermann}
+\email{max.mustermann@rwth-aachen.de} % optionally
+\institute{Institut für Mustertechnologie}
+%\webaddress{www.informatik.rwth-aachen.de/mentoring} % overrides www.rwth-aachen.de
+\date{\today}
+\subject{RWTH presentation template}
+\keywords{RWTH, Latex Beamer, template}
+
+%\logo{\includegraphics[height=8mm]{logos/logo}} % will replace the default logo
+
+% official institute logo offset correction
+%\logo{\vskip-3.5mm\includegraphics[height=12.5mm]{logos/rwth_mentoring_rgb.eps}\hspace{-2mm}} % optionally
+\logo{\vskip-2mm\includegraphics[width=45mm]{logos/logo}\hspace{-2mm}} % optionally
+
+% alternative logo position (not recommended)
+%\instlogo{\includegraphics[height=10mm]{logos/rwth_mentoring_rgb.eps}} % optionally
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% configure template behaviour
+%%-------------------------------
+%%   secstart -- style of section start
+%%               selectable parameters:
+%%                 sectitle:  only provides section title
+%%                 sectoc:    display section table of contents
+%%                 <empty>:   display nothing on section start
+\secstart{sectitle}
+
